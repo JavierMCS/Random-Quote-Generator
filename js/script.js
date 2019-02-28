@@ -39,15 +39,18 @@ let quotes = [
   }
 ];
 
-//console.log(quotes); testing to see if my array of objects actually works. 
+//console.log(quotes); testing to see if my array of objects actually works.
 
 /***
   Create the `getRandomQuote` function to:
    - Create a variable to store a random number
    - Cse the random number to `return` a random quote object from the `quotes` array.
 ***/
-
-
+function getRandomQuote() {
+  let random = Math.floor(Math.random() * (quotes.length));
+  return quotes[random];
+}
+//console.log(getRandomQuote()); This was used to test my function to see if it will actually print in the console randomly the quotes I wrote in.
 
 
 /***
@@ -62,8 +65,20 @@ let quotes = [
    - Don't forget to close that final `p` tag.
    - Set the `innerHTML` of the `quote-box` div to the HTML string.
 ***/
-
-
+function printQuote() {
+  let randomQuote = getRandomQuote();
+  let html = '';
+  html += '<p class="quote">' + randomQuote.quote + '</p>';
+  html += '<p class="source"> ' + randomQuote.source;
+  if(randomQuote.citation){
+    html += '<span class="citation">' + randomQuote.citation + '</span>';
+  }
+  if(randomQuote.year){
+    html += '<span class="year">' + randomQuote.year + '</span>';
+  }
+  html += '</p>';
+  console.log(html);
+}
 
 
 /***
